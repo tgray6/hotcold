@@ -29,36 +29,30 @@ export default class App extends React.Component {
     })
   }
 
-
   handleSubmit(event){
     event.preventDefault();
     //treated the state as if it were immutable using the spread operator
     this.setState({
       recentGuessedNum: this.numberInput.value,
-      guessedNumbers: [...this.state.guessedNumbers, this.numberInput.value]
-
+      guessedNumbers: [...this.state.guessedNumbers, this.numberInput.value],
+      response: this.state.number === this.numberInput.value? 'correct' : 'try again'
     })
     this.numberInput.value = "";
-
-    if (this.state.number === this.state.recentGuessedNum){
-      this.setState({
-        response: "Correct"
-      })
-    }
+    console.log(this.state)
   }
 
-  testValues(){
-    if (this.state.number === this.state.recentGuessedNum){
-      console.log("Hell Yeah They Are Equal");
-    }
-    else{
-      console.log("Shit must not be equal");
-    }
-  }
+  // testValues(){
+  //   if (this.state.number === this.state.recentGuessedNum){
+  //     console.log("Hell Yeah They Are Equal");
+  //   }
+  //   else{
+  //     console.log("Shit must not be equal");
+  //   }
+  // }
 
 
   render() {
-    this.testValues()
+    // this.testValues()
     const formStyle = {
       width: "250px",
       background: "#222",
@@ -71,10 +65,9 @@ export default class App extends React.Component {
     console.log("Number to guess is: " + this.state.number);
     console.log("Guessed numbers are: " + this.state.guessedNumbers);
     console.log("Most recent guessed was: " + this.state.recentGuessedNum);
-
+    console.log (this.state.response);
     return (
       <div>
-        {this.testValues()}
         <div className="App">
          <header className="App-header">
            <h1 className="App-title">HOT OR COLD CHALLENGE</h1>
