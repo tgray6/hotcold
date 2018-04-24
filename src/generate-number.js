@@ -1,13 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+// import React from 'react';
 
-
-const randomNumber = Math.floor((Math.random() * 100) + 1);
-
-export default class generateNumber extends React.Component{
-	rendor(){
-		return(
-			
-		)
-	}
+export default function GenerateNumber(){
+	let n = Math.floor((Math.random() * 100) + 1);
+	return n.toString();
 }
